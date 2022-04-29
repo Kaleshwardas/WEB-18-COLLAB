@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body{
+         padding-top: 50px;
+        }
+      #container {
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin: auto;
+      }
+      #container>div{
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    }
+    div>img{
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+   
+    
+    div>h3{
+        margin-top: 10px;
+        margin-bottom: 25px;
+        padding-right: 15px;
+        text-align: center;
+    }
+    div>h2{
+        width: 45%;
+        display: inline;
+        padding-right: 20px;
+        padding-left: 15px;
+    }
+
+    #container>div>h2+h2{
+        color: rgb(75, 72, 72);
+        text-decoration-line: line-through;
+        font-size: 17px;
+
+    }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+    </div>
+  </body>
+</html>
+
+<script>
+  var data = [
+    {
+        imgUrl:"https://content.shop4reebok.com/static/Product-HG5456/reebok_HG5456_1.jpg.plp",
+        name:"LATEST MEN’S T-SHIRT",
+        price:"$25.00",
+        strikedOffPrice:"$95.00"
+    },{
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi2.jpg.pagespeed.ic.uBrpABaJqp.webp",
+        name:"LATEST MEN’S JEAN'S",
+        price:"$45.00",
+        strikedOffPrice:"$110.00"
+    },{
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi3.jpg.pagespeed.ic.iO_cFEPy2K.webp",
+        name:"LATEST MEN’S WATCH",
+        price:"$50.00",
+        strikedOffPrice:"$150.00"
+    },
+    {
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi4.jpg.pagespeed.ic.kmiQW8I5wx.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$30.00",
+        strikedOffPrice:"$90.00"
+    }
+]
+
+  data.forEach(function (elem) {
+    var box = document.createElement("div");
+    var picture = document.createElement("img");
+    picture.setAttribute("src", elem.imgUrl);
+    var name = document.createElement("h3");
+    name.innerText = elem.name;
+    var price = document.createElement("h2");
+    price.innerText = elem.price;
+    var strikedOffPrice = document.createElement("h2");
+    strikedOffPrice.innerText = elem.strikedOffPrice;
+
+    box.append(picture,name,price,strikedOffPrice);
+    document.querySelector("#container").append(box);
+  });
+</script>
